@@ -1,0 +1,35 @@
+name: nginx
+type: service
+icon: nginx
+title: Nginx
+scalable: true
+
+options:
+- version: 1.21
+  default: true
+- version: 1.20
+
+containers:
+- name: nginx
+  image: wodby/nginx
+  ports:
+  - name: http
+    number: 80
+    type: http
+    main: true
+    
+labels:
+- nginx
+
+build:
+  dockerfile: Dockerfile
+
+settings:
+- name: docroot
+  title: Nginx docroot
+  from: backend
+  var: DOCROOT_SUBDIR
+
+env:
+- name: NGINX_SERVER_ROOT
+  value: /var/www/html/$(DOCROOT_SUBDIR)
