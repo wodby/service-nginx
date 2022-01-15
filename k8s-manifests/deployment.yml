@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: nginx
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      name: nginx
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: nginx
+    spec:
+      containers:
+      - env:
+        - name: NGINX_SET_REAL_IP_FROM
+          value: 172.17.0.0/16
+        image: wodby/nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /.healthz
+            port: 80
+          initialDelaySeconds: 80
+          periodSeconds: 30
+          timeoutSeconds: 3
+          failureThreshold: 2
+        readinessProbe:
+          httpGet:
+            path: /.healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 30
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 2
