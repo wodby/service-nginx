@@ -22,7 +22,6 @@ labels:
 - nginx
 
 build:
-  connect: true
   templates:
   - name: nextjs
     title: Next.js
