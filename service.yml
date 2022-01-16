@@ -22,7 +22,6 @@ labels:
 - nginx
 
 build:
-  dockerfile: Dockerfile
   connect: true
   templates:
   - name: nextjs
