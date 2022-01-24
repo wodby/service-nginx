@@ -3,6 +3,7 @@ type: service
 icon: nginx
 title: Nginx
 scalable: true
+hostname: nginx
 
 options:
 - version: 1.21
