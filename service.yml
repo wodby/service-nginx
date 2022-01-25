@@ -35,6 +35,17 @@ settings:
   title: Nginx docroot subdir
   var: DOCROOT_SUBDIR
 
+configs:
+- name: main config
+  path: /etc/nginx/nginx.conf
+- name: preset config
+  path: /etc/nginx/preset.conf
+- name: upstream config
+  path: /etc/nginx/upstream.conf
+- name: 50x error
+  path: /usr/share/nginx/html/50x.html
+
+
 env:
 - name: NGINX_SERVER_ROOT
   value: /var/www/html/$(DOCROOT_SUBDIR)
