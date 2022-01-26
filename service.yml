@@ -36,15 +36,18 @@ settings:
   var: DOCROOT_SUBDIR
 
 configs:
-- name: main config
+- name: main
+  title: main config
   path: /etc/nginx/nginx.conf
-- name: preset config
+- name: preset
+  title: preset config
   path: /etc/nginx/preset.conf
-- name: upstream config
+- name: upstream
+  title: upstream config
   path: /etc/nginx/upstream.conf
-- name: 50x error
+- name: 50x
+  title: 50x error
   path: /usr/share/nginx/html/50x.html
-
 
 env:
 - name: NGINX_SERVER_ROOT
