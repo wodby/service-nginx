@@ -38,7 +38,8 @@ settings:
 configs:
 - name: main
   title: main config
-  path: /etc/gotpl/nginx.conf.tmpl
+  mountPath: /etc/gotpl/config
+  filename: nginx.conf.tmpl
 
 env:
 - name: NGINX_SERVER_ROOT
