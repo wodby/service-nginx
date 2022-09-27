@@ -18,7 +18,11 @@ containers:
     number: 80
     type: http
     main: true
-    
+  resources:
+    request:
+      memory: 128
+      cpu: 100
+
 labels:
 - nginx
 
