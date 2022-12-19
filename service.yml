@@ -6,9 +6,9 @@ scalable: true
 hostname: nginx
 
 options:
-- version: '1.21'
+- version: '1.23'
   default: true
-- version: '1.20'
+- version: '1.22'
 
 containers:
 - name: nginx
