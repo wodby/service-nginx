@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: nginx
-  name: nginx
+    name: '{{.Name}}'
+  name: '{{.Name}}'
 spec:
   selector:
     matchLabels:
-      name: nginx
+      name: '{{.Name}}'
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        name: nginx
+        name: '{{.Name}}'
     spec:
       containers:
       - env:
