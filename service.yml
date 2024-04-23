@@ -36,9 +36,8 @@ settings:
 
 configs:
 - name: main
-  title: main config
-  mountPath: /etc/gotpl/config
-  filename: nginx.conf.tmpl
+  title: Server block config
+  helm: serverBlock
 
 env:
 - name: NGINX_SERVER_ROOT
