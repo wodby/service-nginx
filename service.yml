@@ -50,7 +50,7 @@ helm:
   chart: oci://registry-1.docker.io/bitnamicharts/nginx
   version: 16.0.5
   configurations:
-  - name: php
+  - name: nginx
     labels: commonLabels
     annotations: commonAnnotations
     env: extraEnvVars
