@@ -6,9 +6,8 @@ scalable: true
 hostname: nginx
 
 options:
-- version: '1.23'
+- version: '1.25'
   default: true
-- version: '1.22'
 
 containers:
 - name: nginx
@@ -44,3 +43,17 @@ configs:
 env:
 - name: NGINX_SERVER_ROOT
   value: /var/www/html/$(DOCROOT_SUBDIR)
+
+
+helm:
+  name: bitnami
+  source: oci://registry-1.docker.io/bitnamicharts/nginx
+  chart: oci://registry-1.docker.io/bitnamicharts/nginx
+  version: 16.0.5
+  configurations:
+  - name: php
+    labels: commonLabels
+    annotations: commonAnnotations
+    env: extraEnvVars
+    service: '{{service.name}}'
+    resources: resources
