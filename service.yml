@@ -44,7 +44,6 @@ env:
 - name: NGINX_SERVER_ROOT
   value: /var/www/html/$(DOCROOT_SUBDIR)
 
-
 helm:
   name: bitnami
   source: oci://registry-1.docker.io/bitnamicharts/nginx
@@ -55,5 +54,7 @@ helm:
     labels: commonLabels
     annotations: commonAnnotations
     env: extraEnvVars
-    service: '{{service.name}}'
     resources: resources
+    ingresses: 
+    - name: common
+      service: '{{service.name}}'
