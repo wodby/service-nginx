@@ -38,6 +38,7 @@ configs:
 - name: main
   title: Server block config
   helm: serverBlock
+  config: ""
 
 env:
 - name: NGINX_SERVER_ROOT
