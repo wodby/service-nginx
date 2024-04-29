@@ -41,11 +41,11 @@ settings:
 configs:
 - name: main
   title: Server block config
-  path: /etc/gotpl/config/nginx.conf.tmpl
+  filepath: /etc/gotpl/config/nginx.conf.tmpl
   config: nginx.conf.tmpl
 - name: vhost
   title: Virtual host
-  path: /etc/gotpl/vhost.conf.tmpl
+  filepath: /etc/gotpl/vhost.conf.tmpl
   config: vhost.conf.tmpl
 
 env:
