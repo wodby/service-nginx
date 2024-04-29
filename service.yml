@@ -66,6 +66,8 @@ helm:
     ingresses: 
     - name: common
       service: '{{service.name}}'
+    volumes: extraVolumes
+    mounts: extraVolumeMounts
   values:
   - name: resourcesPreset
     value: 'none'
