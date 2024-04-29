@@ -7,12 +7,12 @@ hostname: nginx
 
 options:
 - version: '1.25'
-  tag: 1.25.5-debian-12-r0
+  tag: '1.25'
   default: true
 
 containers:
 - name: nginx
-  image: bitnami/nginx
+  image: wodby/nginx
   ports:
   - name: http
     number: 80
@@ -41,8 +41,12 @@ settings:
 configs:
 - name: main
   title: Server block config
-  helm: serverBlock
-  config: ""
+  path: /etc/gotpl/config/nginx.conf.tmpl
+  config: nginx.conf.tmpl
+- name: vhost
+  title: Virtual host
+  path: /etc/gotpl/vhost.conf.tmpl
+  config: vhost.conf.tmpl
 
 env:
 - name: NGINX_SERVER_ROOT
