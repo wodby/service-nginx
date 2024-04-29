@@ -7,11 +7,12 @@ hostname: nginx
 
 options:
 - version: '1.25'
+  tag: 1.25.5-debian-12-r0
   default: true
 
 containers:
 - name: nginx
-  image: wodby/nginx
+  image: bitnami/nginx
   ports:
   - name: http
     number: 80
