@@ -53,10 +53,10 @@ env:
   value: /var/www/html/$(DOCROOT_SUBDIR)
 
 helm:
-  name: bitnami
-  source: oci://registry-1.docker.io/bitnamicharts/nginx
-  chart: oci://registry-1.docker.io/bitnamicharts/nginx
-  version: 16.0.5
+  name: wodby
+  source: oci://registry-1.docker.io/wodby/nginx
+  chart: oci://registry-1.docker.io/wodby/nginx
+  version: 0.1.0
   configurations:
   - name: nginx
     labels: commonLabels
