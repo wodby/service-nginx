@@ -1,52 +1,52 @@
-user                            {{ getenv "NGINX_USER" "nginx" }};
+user                            {{ .Values.env.NGINX_USER | default "nginx" }};
 daemon                          off;
-worker_processes                {{ getenv "NGINX_WORKER_PROCESSES" "auto" }};
-error_log                       /proc/self/fd/2 {{ getenv "NGINX_ERROR_LOG_LEVEL" "error" }};
-{{- if getenv "NGINX_MODSECURITY_ENABLED" }}
+worker_processes                {{ .Values.extraEnvVars.NGINX_WORKER_PROCESSES | default "auto" }};
+error_log                       /proc/self/fd/2 {{ .Values.extraEnvVars.NGINX_ERROR_LOG_LEVEL | default "error" }};
+{{- if .Values.extraEnvVars.NGINX_MODSECURITY_ENABLED }}
 load_module                     modules/ngx_http_modsecurity_module.so;
 {{- end }}
 
 events {
-    worker_connections          {{ getenv "NGINX_WORKER_CONNECTIONS" "1024" }};
-    multi_accept                {{ getenv "NGINX_MULTI_ACCEPT" "on" }};
+    worker_connections          {{ .Values.extraEnvVars.NGINX_WORKER_CONNECTIONS | default "1024" }};
+    multi_accept                {{ .Values.extraEnvVars.NGINX_MULTI_ACCEPT | default "on" }};
 }
 
 http {
-    {{- if getenv "NGINX_METRICS_ENABLED" }}
+    {{- if .Values.extraEnvVars.NGINX_METRICS_ENABLED" }}
     vhost_traffic_status_zone;
     {{- end }}
 
     include                     /etc/nginx/mime.types;
     default_type                application/octet-stream;
 
-    {{- if getenv "NGINX_LOG_FORMAT_OVERRIDE" }}
-    log_format                  custom '{{ getenv "NGINX_LOG_FORMAT_OVERRIDE" }}';
+    {{- if .Values.extraEnvVars.NGINX_LOG_FORMAT_OVERRIDE }}
+    log_format                  custom '{{ .Values.extraEnvVars.NGINX_LOG_FORMAT_OVERRIDE }}';
     access_log                  /proc/self/fd/1 custom;
     {{- else }}
     access_log                  /proc/self/fd/1 combined;
     {{- end }}
 
-    send_timeout                {{ getenv "NGINX_SEND_TIMEOUT" "60s" }};
-    sendfile                    {{ getenv "NGINX_SENDFILE" "on" }};
-    client_body_timeout         {{ getenv "NGINX_CLIENT_BODY_TIMEOUT" "60s" }};
-    client_header_timeout       {{ getenv "NGINX_CLIENT_HEADER_TIMEOUT" "60s" }};
-    client_max_body_size        {{ getenv "NGINX_CLIENT_MAX_BODY_SIZE" "32m" }};
-    client_body_buffer_size     {{ getenv "NGINX_CLIENT_BODY_BUFFER_SIZE" "16k" }};
-    client_header_buffer_size   {{ getenv "NGINX_CLIENT_HEADER_BUFFER_SIZE" "4k" }};
-    large_client_header_buffers {{ getenv "NGINX_LARGE_CLIENT_HEADER_BUFFERS" "8 16K" }};
-    keepalive_timeout           {{ getenv "NGINX_KEEPALIVE_TIMEOUT" "75s" }};
-    keepalive_requests          {{ getenv "NGINX_KEEPALIVE_REQUESTS" "100" }};
-    reset_timedout_connection   {{ getenv "NGINX_RESET_TIMEDOUT_CONNECTION" "off" }};
-    tcp_nodelay                 {{ getenv "NGINX_TCP_NODELAY" "on" }};
-    tcp_nopush                  {{ getenv "NGINX_TCP_NOPUSH" "on" }};
-    server_tokens               {{ getenv "NGINX_SERVER_TOKENS" "off" }};
-    underscores_in_headers      {{ getenv "NGINX_UNDERSCORES_IN_HEADERS" "off" }};
+    send_timeout                {{ .Values.extraEnvVars.NGINX_SEND_TIMEOUT | default "60s" }};
+    sendfile                    {{ .Values.extraEnvVars.NGINX_SENDFILE | default "on" }};
+    client_body_timeout         {{ .Values.extraEnvVars.NGINX_CLIENT_BODY_TIMEOUT | default "60s" }};
+    client_header_timeout       {{ .Values.extraEnvVars.NGINX_CLIENT_HEADER_TIMEOUT | default "60s" }};
+    client_max_body_size        {{ .Values.extraEnvVars.NGINX_CLIENT_MAX_BODY_SIZE | default "32m" }};
+    client_body_buffer_size     {{ .Values.extraEnvVars.NGINX_CLIENT_BODY_BUFFER_SIZE | default "16k" }};
+    client_header_buffer_size   {{ .Values.extraEnvVars.NGINX_CLIENT_HEADER_BUFFER_SIZE | default "4k" }};
+    large_client_header_buffers {{ .Values.extraEnvVars.NGINX_LARGE_CLIENT_HEADER_BUFFERS | default "8 16K" }};
+    keepalive_timeout           {{ .Values.extraEnvVars.NGINX_KEEPALIVE_TIMEOUT | default "75s" }};
+    keepalive_requests          {{ .Values.extraEnvVars.NGINX_KEEPALIVE_REQUESTS | default "100" }};
+    reset_timedout_connection   {{ .Values.extraEnvVars.NGINX_RESET_TIMEDOUT_CONNECTION | default "off" }};
+    tcp_nodelay                 {{ .Values.extraEnvVars.NGINX_TCP_NODELAY | default "on" }};
+    tcp_nopush                  {{ .Values.extraEnvVars.NGINX_TCP_NOPUSH | default "on" }};
+    server_tokens               {{ .Values.extraEnvVars.NGINX_SERVER_TOKENS | default "off" }};
+    underscores_in_headers      {{ .Values.extraEnvVars.NGINX_UNDERSCORES_IN_HEADERS | default "off" }};
 
-    upload_progress             {{ getenv "NGINX_UPLOAD_PROGRESS" "uploads 1m" }};
+    upload_progress             {{ .Values.extraEnvVars.NGINX_UPLOAD_PROGRESS | default "uploads 1m" }};
 
-    brotli                      {{ getenv "NGINX_BROTLI" "on" }};
-    brotli_static               {{ getenv "NGINX_BROTLI_STATIC" "on" }};
-    brotli_comp_level           {{ getenv "NGINX_BROTLI_COMP_LEVEL" "1" }};
+    brotli                      {{ .Values.extraEnvVars.NGINX_BROTLI | default "on" }};
+    brotli_static               {{ .Values.extraEnvVars.NGINX_BROTLI_STATIC | default "on" }};
+    brotli_comp_level           {{ .Values.extraEnvVars.NGINX_BROTLI_COMP_LEVEL | default "1" }};
     brotli_types                application/atom+xml
                                 application/geo+json
                                 application/javascript
@@ -82,14 +82,14 @@ http {
                                 application/xml
                                 application/xml+rss;
 
-    gzip                        {{ getenv "NGINX_GZIP" "on" }};
-    gzip_buffers                {{ getenv "NGINX_GZIP_BUFFERS" "16 8k" }};
-    gzip_comp_level             {{ getenv "NGINX_GZIP_COMP_LEVEL" "1" }};
-    gzip_http_version           {{ getenv "NGINX_GZIP_HTTP_VERSION" "1.1" }};
-    gzip_min_length             {{ getenv "NGINX_GZIP_MIN_LENGTH" "20" }};
-    gzip_vary                   {{ getenv "NGINX_GZIP_VARY" "on" }};
-    gzip_proxied                {{ getenv "NGINX_GZIP_PROXIED" "any" }};
-    gzip_disable                {{ getenv "NGINX_GZIP_DISABLE" "msie6" }};
+    gzip                        {{ .Values.extraEnvVars.NGINX_GZIP | default "on" }};
+    gzip_buffers                {{ .Values.extraEnvVars.NGINX_GZIP_BUFFERS | default "16 8k" }};
+    gzip_comp_level             {{ .Values.extraEnvVars.NGINX_GZIP_COMP_LEVEL | default "1" }};
+    gzip_http_version           {{ .Values.extraEnvVars.NGINX_GZIP_HTTP_VERSION | default "1.1" }};
+    gzip_min_length             {{ .Values.extraEnvVars.NGINX_GZIP_MIN_LENGTH | default "20" }};
+    gzip_vary                   {{ .Values.extraEnvVars.NGINX_GZIP_VARY | default "on" }};
+    gzip_proxied                {{ .Values.extraEnvVars.NGINX_GZIP_PROXIED | default "any" }};
+    gzip_disable                {{ .Values.extraEnvVars.NGINX_GZIP_DISABLE | default "msie6" }};
     gzip_types                  application/atom+xml
                                 application/geo+json
                                 application/javascript
@@ -118,20 +118,20 @@ http {
                                 text/x-component
                                 text/x-cross-domain-policy;
 
-    {{- if getenv "NGINX_SET_REAL_IP_FROM" }}
-    set_real_ip_from {{ getenv "NGINX_SET_REAL_IP_FROM" }};
+    {{- if .Values.extraEnvVars.NGINX_SET_REAL_IP_FROM }}
+    set_real_ip_from {{ .Values.extraEnvVars.NGINX_SET_REAL_IP_FROM }};
     {{- end }}
 
-    {{- if getenv "NGINX_SET_REAL_IPS_FROM" }}{{- range jsonArray (getenv "NGINX_SET_REAL_IPS_FROM") }}
+    {{- if .Values.extraEnvVars.NGINX_SET_REAL_IPS_FROM }}{{- range jsonArray (.Values.extraEnvVars.NGINX_SET_REAL_IPS_FROM) }}
     set_real_ip_from {{ . }};
     {{- end }}{{- end }}
 
-    real_ip_header {{ getenv "NGINX_REAL_IP_HEADER" "X-Real-IP" }};
-    real_ip_recursive {{ getenv "NGINX_REAL_IP_RECURSIVE" "off" }};
+    real_ip_header {{ .Values.extraEnvVars.NGINX_REAL_IP_HEADER | default "X-Real-IP" }};
+    real_ip_recursive {{ .Values.extraEnvVars.NGINX_REAL_IP_RECURSIVE | default "off" }};
 
     map $uri $no_slash_uri {
         ~^/(?<no_slash>.*)$ $no_slash;
     }
 
-    include {{ getenv "NGINX_CONF_INCLUDE" "conf.d/*.conf" }};
+    include {{ .Values.extraEnvVars.NGINX_CONF_INCLUDE | default "conf.d/*.conf" }};
 }
