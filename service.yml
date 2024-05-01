@@ -37,7 +37,7 @@ settings:
 
 configs:
 - name: main
-  title: Server block config
+  title: Main
   filepath: /etc/gotpl/config/nginx.conf.tmpl
   config: nginx.conf.tmpl
 - name: vhost
