@@ -63,9 +63,6 @@ helm:
     annotations: commonAnnotations
     env: extraEnvVars
     resources: resources
-    ingresses: 
-    - name: common
-      service: '{{service.name}}'
     volumes: extraVolumes
     mounts: extraVolumeMounts
   values:
