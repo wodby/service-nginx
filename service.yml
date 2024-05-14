@@ -14,7 +14,7 @@ containers:
 - name: nginx
   image: wodby/nginx
 
-routes:
+endpoints:
 - name: http
   ports:
   - name: http
