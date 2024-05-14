@@ -21,6 +21,7 @@ routes:
     number: 80
     type: http
     main: true
+    ingress: true
 
 labels:
 - nginx
