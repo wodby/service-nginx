@@ -13,6 +13,9 @@ options:
 containers:
 - name: nginx
   image: wodby/nginx
+
+routes:
+- name: http
   ports:
   - name: http
     number: 80
