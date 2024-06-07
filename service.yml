@@ -65,7 +65,3 @@ helm:
     resources: resources
     volumes: extraVolumes
     mounts: extraVolumeMounts
-  values:
-  - name: resourcesPreset
-    value: 'none'
-
