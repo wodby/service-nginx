@@ -61,7 +61,7 @@ helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/nginx
   chart: oci://registry-1.docker.io/wodby/nginx
-  version: 0.1.0
+  version: 0.2.0
   configurations:
   - name: nginx
     labels: commonLabels
