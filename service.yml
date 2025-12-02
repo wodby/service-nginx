@@ -15,6 +15,18 @@ options:
   tag: '1.25'
   eol: '2024-05-29T00:00:00+00:00'
 
+links:
+- name: backend
+  title: Backend
+  required: false
+  env:
+  - name: NGINX_BACKEND_HOST
+    value: '{{link.host}}'
+  - name: NGINX_BACKEND_PORT
+    value: '{{link.port}}'
+  selectors:
+  - type: service
+
 containers:
 - name: nginx
   image: wodby/nginx
