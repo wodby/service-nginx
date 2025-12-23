@@ -6,11 +6,14 @@ scalable: true
 hostname: nginx
 
 options:
+- version: '1.29'
+  tag: '1.29'
+  default: true
 - version: '1.28'
   tag: '1.28'
-  default: true
 - version: '1.27'
   tag: '1.27'
+  eol: '2025-06-24T00:00:00+00:00'  
 - version: '1.25'
   tag: '1.25'
   eol: '2024-05-29T00:00:00+00:00'
