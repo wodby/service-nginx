@@ -48,9 +48,9 @@ labels:
 build:
   connect: true
   templates:
-  - name: nextjs
-    title: Next.js
-    repo: https://github.com/wodby/nextjs
+  - name: react
+    title: React boilerplate
+    repo: https://github.com/wodby/react-boilerplate
     branch: main
 
 settings:
