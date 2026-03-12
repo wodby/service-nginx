@@ -78,7 +78,7 @@ helm:
   chart: oci://registry-1.docker.io/wodby/nginx
   version: 0.2.0
   configurations:
-  - name: nginx
+  - container: nginx
     labels: commonLabels
     annotations: commonAnnotations
     env: extraEnvVars
