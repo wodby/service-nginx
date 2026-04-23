@@ -64,6 +64,8 @@ configs:
   config: vhost.conf.tmpl
 
 env:
+- name: NGINX_VHOST_PRESET
+  value: html
 - name: NGINX_SERVER_ROOT
   value: /var/www/html/$(DOCROOT_SUBDIR)
 
