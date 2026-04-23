@@ -72,19 +72,19 @@ helm:
   source: oci://registry-1.docker.io/wodby/nginx
   chart: oci://registry-1.docker.io/wodby/nginx
   version: 0.2.0
+
 workloads:
 - id: main
   kind: deployment
   primary: true
-  containers:
-  - name: nginx
-    image: wodby/nginx
-
-    helm:
-      resources: resources
-      env: extraEnvVars
-      mounts: extraVolumeMounts
   helm:
     labels: commonLabels
     annotations: commonAnnotations
     volumes: extraVolumes
+  containers:
+  - name: nginx
+    image: wodby/nginx
+    helm:
+      resources: resources
+      env: extraEnvVars
+      mounts: extraVolumeMounts
