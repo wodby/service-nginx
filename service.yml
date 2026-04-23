@@ -86,6 +86,7 @@ workloads:
   containers:
   - name: nginx
     image: wodby/nginx
+    build: true
     helm:
       resources: resources
       env: extraEnvVars
