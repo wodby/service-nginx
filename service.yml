@@ -64,10 +64,25 @@ configs:
   title: Main
   filepath: /etc/gotpl/config/nginx.conf.tmpl
   config: nginx.conf.tmpl
+- name: main
+  title: Main
+  filepath: /etc/gotpl/config/nginx.conf.tmpl
+  config: nginx.conf.1.25.tmpl
+  version: '1.25'
 - name: vhost
   title: Virtual host
   filepath: /etc/gotpl/vhost.conf.tmpl
   config: vhost.conf.tmpl
+- name: vhost
+  title: Virtual host
+  filepath: /etc/gotpl/vhost.conf.tmpl
+  config: vhost.conf.1.27.tmpl
+  version: '1.27'
+- name: vhost
+  title: Virtual host
+  filepath: /etc/gotpl/vhost.conf.tmpl
+  config: vhost.conf.1.25.tmpl
+  version: '1.25'
 
 env:
 - name: NGINX_VHOST_PRESET
