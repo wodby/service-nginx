@@ -48,7 +48,7 @@ labels:
 
 build:
   connect: true
-  templates:
+  boilerplates:
   - name: react
     title: React boilerplate
     repo: https://github.com/wodby/react-boilerplate
