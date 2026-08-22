@@ -79,11 +79,19 @@ env:
 - name: NGINX_SERVER_ROOT
   value: /var/www/html/$(DOCROOT_SUBDIR)
 
+deployment:
+  strategy: rolling
+  maxUnavailable: 0
+  maxSurge: 1
+  minReady: 10s
+  progressDeadline: 15m
+  shutdownGracePeriod: 30s
+
 helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/nginx
   chart: oci://registry-1.docker.io/wodby/nginx
-  version: 0.2.2
+  version: 0.3.0
 
 workloads:
 - name: main
