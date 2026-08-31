@@ -91,7 +91,7 @@ helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/nginx
   chart: oci://registry-1.docker.io/wodby/nginx
-  version: 0.3.1
+  version: 0.3.2
 
 workloads:
 - name: main
