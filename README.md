@@ -32,7 +32,7 @@ build configuration and Wodby CI:
 | Endpoints | `http`: HTTP 80 (main) |
 | Service links | Backend, optional |
 | Application build | Git source connection enabled; boilerplates: React boilerplate |
-| Helm | chart `oci://registry-1.docker.io/wodby/nginx`; version `0.2.2` |
+| Helm | chart `oci://registry-1.docker.io/wodby/nginx`; version `0.3.1` |
 | Configuration | 1 settings, 2 configuration files |
 
 ## Use this service
