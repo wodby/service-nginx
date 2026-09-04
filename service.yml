@@ -49,9 +49,9 @@ labels:
 build:
   connect: true
   boilerplates:
-  - name: react
-    title: React boilerplate
-    repo: https://github.com/wodby/react-boilerplate
+  - name: html
+    title: HTML boilerplate
+    repo: https://github.com/wodby/html-boilerplate
     branch: main
 
 settings:
