@@ -14,7 +14,7 @@ configuration for Nginx.
 Use one of the boilerplates exposed by this service to start with compatible
 build configuration and Wodby CI:
 
-- [React boilerplate](https://github.com/wodby/react-boilerplate)
+- [HTML boilerplate](https://github.com/wodby/html-boilerplate)
 
 ## Wodby stacks using this service
 
@@ -31,7 +31,7 @@ build configuration and Wodby CI:
 | Containers | `nginx` using `wodby/nginx`, build target |
 | Endpoints | `http`: HTTP 80 (main) |
 | Service links | Backend, optional |
-| Application build | Git source connection enabled; boilerplates: React boilerplate |
+| Application build | Git source connection enabled; boilerplates: HTML boilerplate |
 | Helm | chart `oci://registry-1.docker.io/wodby/nginx`; version `0.3.2` |
 | Configuration | 1 settings, 2 configuration files |
 
