@@ -6,10 +6,10 @@ scalable: true
 
 options:
 - version: '1.31'
-  tag: 1.31-r0
+  tag: 1.31-r1
   default: true
 - version: '1.30'
-  tag: 1.30-r0
+  tag: 1.30-r1
 links:
 - name: backend
   title: Backend
