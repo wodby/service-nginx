@@ -26,13 +26,13 @@ build configuration and Wodby CI:
 | --- | --- |
 | Service name | `nginx` |
 | Type | Application service |
-| Versions | `1.31` by default; also available: `1.30`, `1.29`, `1.28`, `1.27`, `1.25` |
+| Versions | `1.31` by default; also available: `1.30` |
 | Workloads | `main` (Deployment), primary; scalable |
 | Containers | `nginx` using `wodby/nginx`, build target |
 | Endpoints | `http`: HTTP 80 (main) |
 | Service links | Backend, optional |
 | Application build | Git source connection enabled; boilerplates: HTML boilerplate |
-| Helm | chart `oci://registry-1.docker.io/wodby/nginx`; version `0.3.2` |
+| Helm | chart `oci://registry-1.docker.io/wodby/nginx`; version `0.4.0` |
 | Configuration | 1 settings, 2 configuration files |
 
 ## Use this service
