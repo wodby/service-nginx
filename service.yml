@@ -3,6 +3,7 @@ type: service
 icon: nginx
 title: Nginx
 scalable: true
+guidance: GUIDANCE.md
 
 options:
 - version: '1.31'
