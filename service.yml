@@ -95,6 +95,8 @@ workloads:
   containers:
   - name: nginx
     image: wodby/nginx
+    resources:
+      preset: nano
     build: true
     helm:
       resources: resources
