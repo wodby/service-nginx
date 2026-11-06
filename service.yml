@@ -7,10 +7,10 @@ guidance: GUIDANCE.md
 
 options:
 - version: '1.31'
-  tag: 1.31-r18
+  tag: 1.31-r19
   default: true
 - version: '1.30'
-  tag: 1.30-r18
+  tag: 1.30-r19
 links:
 - name: backend
   title: Backend
