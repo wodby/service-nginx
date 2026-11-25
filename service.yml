@@ -7,12 +7,12 @@ guidance: GUIDANCE.md
 
 options:
 - version: '1.31'
-  tag: 1.31-r24
-  digest: sha256:03b77d9109b3cdd9674f22a78739cd79b1e20229027f47d144eb2ecf1f5bd929
+  tag: 1.31-r26
+  digest: sha256:3315d7813ad31b5ba4de5b6c6e631ba92cb15f1ff82d37afdf0d8a8b653535db
   default: true
 - version: '1.30'
-  tag: 1.30-r24
-  digest: sha256:9dafb83bd6e94583f752870766cb347a52403b93115c6cc72034edd7bdc169bc
+  tag: 1.30-r26
+  digest: sha256:3e03bf618b5ac8bcd4b5124b83e0bd4c793487cd471bf85b6cb74facacfde76d
 links:
 - name: backend
   title: Backend
